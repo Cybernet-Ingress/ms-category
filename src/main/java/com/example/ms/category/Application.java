@@ -1,13 +1,13 @@
-package com.example.mscategory;
+package com.example.ms.category;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MsCategoryApplication {
+public class Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(MsCategoryApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
 
 }

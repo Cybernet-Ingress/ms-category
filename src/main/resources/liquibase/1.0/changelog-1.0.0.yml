@@ -1,0 +1,57 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create categories table
+      author: Rovshan Huseynov
+      changes:
+        - createTable:
+            tableName: categories
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                  remarks: id of a category
+              - column:
+                  name: name
+                  type: varchar(64)
+                  constraints:
+                    unique: true
+                    nullable: false
+                  remarks: name of a category
+              - column:
+                  name: parent
+                  type: bigint
+                  remarks: parent of a category
+              - column:
+                  name: priority
+                  type: int
+                  defaultValue: '0'
+                  constraints:
+                    nullable: false
+                  remarks: priority of a category
+              - column:
+                  name: created_at
+                  type: timestamp
+                  defaultValue: now()
+                  constraints:
+                    nullable: false
+                  remarks: creation time of a category
+              - column:
+                  name: status
+                  type: varchar(16)
+                  defaultValue: 'ACTIVE'
+                  constraints:
+                    nullable: false
+                  remarks: status of a category (ACTIVE, DELETED)
+              - column:
+                  name: updated_at
+                  type: timestamp
+                  defaultValue: now()
+                  constraints:
+                    nullable: false
+                  remarks: update time of a category
+
+          remarks: Table to store information about categories
