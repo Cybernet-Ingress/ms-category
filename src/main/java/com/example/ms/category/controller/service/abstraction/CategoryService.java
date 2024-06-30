@@ -10,4 +10,6 @@ public interface CategoryService {
     CreateCategoryResponse createCategory(CreateCategoryRequest request);
 
     List<CategoryDto> getSubCategoriesByParentId(Long parentId);
+
+    CreateCategoryResponse updateCategoryNameById(Long id, String name);
 }

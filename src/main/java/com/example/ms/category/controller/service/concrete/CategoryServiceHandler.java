@@ -38,6 +38,14 @@ public class CategoryServiceHandler implements CategoryService {
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public CreateCategoryResponse updateCategoryNameById(Long id, String name){
+        var entity = fetchActiveCategoryIfExists(id);
+        entity.setName(name);
+        entity = categoryRepository.save(entity);
+        return CATEGORY_MAPPER.toCreateCategoryResponse(entity);
+    }
+
     private CategoryEntity fetchActiveCategoryIfExists(Long id){
         return categoryRepository.findByIdAndStatus(id, ACTIVE)
                 .orElseThrow(() -> new RuntimeException("category not found with id: " + id));
