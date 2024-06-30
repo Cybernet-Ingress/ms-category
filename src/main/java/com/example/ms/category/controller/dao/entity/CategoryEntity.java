@@ -39,7 +39,7 @@ public class CategoryEntity {
 
     Long parent;
 
-    int priority;
+    Integer priority;
 
     @CreationTimestamp
     LocalDateTime createdAt;

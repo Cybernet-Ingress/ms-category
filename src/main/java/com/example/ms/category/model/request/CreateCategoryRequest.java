@@ -17,6 +17,5 @@ public class CreateCategoryRequest {
 
     Long parent;
 
-    @NotNull
-    int priority;
+    Integer priority;
 }

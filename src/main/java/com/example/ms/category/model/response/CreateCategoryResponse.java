@@ -23,7 +23,7 @@ public class CreateCategoryResponse {
 
     Long parent;
 
-    int priority;
+    Integer priority;
 
     LocalDateTime createdAt;
 

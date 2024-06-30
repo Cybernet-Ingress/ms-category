@@ -24,6 +24,9 @@ databaseChangeLog:
               - column:
                   name: parent
                   type: bigint
+                  defaultValue: '0'
+                  constraints:
+                    nullable: false
                   remarks: parent of a category
               - column:
                   name: priority

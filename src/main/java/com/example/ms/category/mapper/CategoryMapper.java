@@ -14,8 +14,8 @@ public enum CategoryMapper {
     public CategoryEntity buildCategoryEntity(CreateCategoryRequest request){
         return CategoryEntity.builder()
                 .name(request.getName())
-                .parent(request.getParent())
-                .priority(request.getPriority())
+                .parent(request.getParent() == null ? 0 : request.getParent())
+                .priority(request.getPriority() == null ? 0 : request.getPriority())
                 .createdAt(LocalDateTime.now())
                 .status(ACTIVE)
                 .updatedAt(LocalDateTime.now())
