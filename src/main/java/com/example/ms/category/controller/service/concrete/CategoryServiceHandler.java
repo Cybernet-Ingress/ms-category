@@ -15,6 +15,7 @@ import java.util.stream.Collectors;
 
 import static com.example.ms.category.mapper.CategoryMapper.CATEGORY_MAPPER;
 import static com.example.ms.category.model.enums.CategoryStatus.ACTIVE;
+import static com.example.ms.category.model.enums.CategoryStatus.DELETED;
 import static lombok.AccessLevel.PRIVATE;
 
 @Service
@@ -27,6 +28,12 @@ public class CategoryServiceHandler implements CategoryService {
     public CreateCategoryResponse createCategory(CreateCategoryRequest request){
         var entity = CATEGORY_MAPPER.buildCategoryEntity(request);
         entity = categoryRepository.save(entity);
+        return CATEGORY_MAPPER.toCreateCategoryResponse(entity);
+    }
+
+    @Override
+    public CreateCategoryResponse getCategoryById(Long id){
+        var entity = fetchCategoryIfExists(id);
         return CATEGORY_MAPPER.toCreateCategoryResponse(entity);
     }
 
@@ -46,9 +53,21 @@ public class CategoryServiceHandler implements CategoryService {
         return CATEGORY_MAPPER.toCreateCategoryResponse(entity);
     }
 
+    @Override
+    public void deleteCategoryNameById(Long id){
+        var entity = fetchActiveCategoryIfExists(id);
+        entity.setStatus(DELETED);
+        categoryRepository.save(entity);
+    }
+
+    private CategoryEntity fetchCategoryIfExists(Long id){
+        return categoryRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("category not found with id: " + id));
+    }
+
     private CategoryEntity fetchActiveCategoryIfExists(Long id){
         return categoryRepository.findByIdAndStatus(id, ACTIVE)
-                .orElseThrow(() -> new RuntimeException("category not found with id: " + id));
+                .orElseThrow(() -> new RuntimeException("No active subcategory found with id: " + id));
     }
 
     private List<CategoryEntity> fetchActiveSubCategoriesIfExists(Long parentId){

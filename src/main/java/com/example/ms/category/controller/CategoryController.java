@@ -7,6 +7,7 @@ import com.example.ms.category.model.response.CreateCategoryResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,6 +22,7 @@ import java.util.List;
 
 import static lombok.AccessLevel.PRIVATE;
 import static org.springframework.http.HttpStatus.CREATED;
+import static org.springframework.http.HttpStatus.NO_CONTENT;
 
 @RestController
 @RequestMapping("/v1/categories")
@@ -35,13 +37,25 @@ public class CategoryController {
         return categoryService.createCategory(request);
     }
 
+    @GetMapping("/{id}")
+    public CreateCategoryResponse getCategoryById(@PathVariable Long id){
+        return categoryService.getCategoryById(id);
+    }
+
     @GetMapping("/parent/{parentId}")
     public List<CategoryDto> getSubCategoriesByParentId(@PathVariable Long parentId){
         return categoryService.getSubCategoriesByParentId(parentId);
     }
 
     @PatchMapping("/{id}/name")
+    @ResponseStatus(NO_CONTENT)
     public CreateCategoryResponse updateCategoryNameById(@PathVariable Long id, @RequestParam String name){
         return categoryService.updateCategoryNameById(id, name);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(NO_CONTENT)
+    public void deleteCategoryNameById(@PathVariable Long id){
+        categoryService.deleteCategoryNameById(id);
     }
 }
