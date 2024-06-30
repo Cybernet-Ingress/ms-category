@@ -2,6 +2,7 @@ package com.example.ms.category.controller;
 
 import com.example.ms.category.controller.service.abstraction.CategoryService;
 import com.example.ms.category.model.request.CreateCategoryRequest;
+import com.example.ms.category.model.response.CategoryDto;
 import com.example.ms.category.model.response.CreateCategoryResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -33,8 +34,7 @@ public class CategoryController {
     }
 
     @GetMapping("/parent/{parentId}")
-    public List<CreateCategoryResponse> getSubCategoriesByParentId(@PathVariable Long parentId){
-        if(parentId == null) parentId = 0L;
+    public List<CategoryDto> getSubCategoriesByParentId(@PathVariable Long parentId){
         return categoryService.getSubCategoriesByParentId(parentId);
     }
 }

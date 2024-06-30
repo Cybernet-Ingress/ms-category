@@ -1,0 +1,97 @@
+databaseChangeLog:
+  - changeSet:
+      id: Insert test cards into categories table
+      author: Rovshan Huseynov
+      changes:
+        - sql:
+            sql: |
+              INSERT INTO public.categories (id, name, parent, priority, created_at, status, updated_at)
+              VALUES (1, 'Telefonlar, planşetlər və qadcetlər', 0, 0, '2024-04-23 15:32:45', 'ACTIVE', '2024-04-23 15:32:45');
+        - sql:
+            sql: |
+              INSERT INTO public.categories (id, name, parent, priority, created_at, status, updated_at)
+              VALUES (2, 'Televizorlar, audio-video və foto', 0, 0, '2024-10-19 07:45:22', 'ACTIVE', '2024-10-19 07:45:22');
+        - sql:
+            sql: |
+              INSERT INTO public.categories (id, name, parent, priority, created_at, status, updated_at)
+              VALUES (3, 'Notbuklar və kompüter texnikası', 0, 0, '2024-05-07 11:22:37', 'ACTIVE', '2024-05-07 11:22:37');
+        - sql:
+            sql: |
+              INSERT INTO public.categories (id, name, parent, priority, created_at, status, updated_at)
+              VALUES (4, 'Kondisoner və digər iqlim texnikası', 0, 0, '2024-01-14 21:30:53', 'ACTIVE', '2024-01-14 21:30:53');
+        - sql:
+            sql: |
+              INSERT INTO public.categories (id, name, parent, priority, created_at, status, updated_at)
+              VALUES (5, 'Böyük məişət texnikası', 0, 0, '2024-09-03 05:18:09', 'ACTIVE', '2024-09-03 05:18:09');
+        - sql:
+            sql: |
+              INSERT INTO public.categories (id, name, parent, priority, created_at, status, updated_at)
+              VALUES (6, 'Kiçik məişət texnikası', 0, 0, '2024-06-29 14:59:32', 'ACTIVE', '2024-06-29 14:59:32');
+        - sql:
+            sql: |
+              INSERT INTO public.categories (id, name, parent, priority, created_at, status, updated_at)
+              VALUES (7, 'Gözəllik və sağlamlıq', 0, 0, '2024-03-08 08:44:41', 'DELETED', '2024-03-08 08:44:41');
+        - sql:
+            sql: |
+              INSERT INTO public.categories (id, name, parent, priority, created_at, status, updated_at)
+              VALUES (8, 'Smartfonlar, mobil telefonlar', 1, 0, '2024-12-13 13:05:17', 'ACTIVE', '2024-12-13 13:05:17');
+        - sql:
+            sql: |
+              INSERT INTO public.categories (id, name, parent, priority, created_at, status, updated_at)
+              VALUES (9, 'Planşetlər', 1, 0, '2024-02-22 23:17:28', 'ACTIVE', '2024-02-22 23:17:28');
+        - sql:
+            sql: |
+              INSERT INTO public.categories (id, name, parent, priority, created_at, status, updated_at)
+              VALUES (10, 'Smart saatlar və fitnes qolbaqlar', 1, 0, '2024-11-01 18:52:46', 'ACTIVE', '2024-11-01 18:52:46');
+        - sql:
+            sql: |
+              INSERT INTO public.categories (id, name, parent, priority, created_at, status, updated_at)
+              VALUES (11, 'Qulaqlıqlar', 1, 0, '2024-07-16 04:06:55', 'ACTIVE', '2024-07-16 04:06:55');
+        - sql:
+            sql: |
+              INSERT INTO public.categories (id, name, parent, priority, created_at, status, updated_at)
+              VALUES (12, 'Ev və ofis telefonlar', 1, 0, '2024-08-23 19:37:13', 'ACTIVE', '2024-08-23 19:37:13');
+        - sql:
+            sql: |
+              INSERT INTO public.categories (id, name, parent, priority, created_at, status, updated_at)
+              VALUES (13, 'Xarici akkumulyatorlar, Powerbank', 1, 0, '2024-04-01 10:27:20', 'DELETED', '2024-04-01 10:27:20');
+        - sql:
+            sql: |
+              INSERT INTO public.categories (id, name, parent, priority, created_at, status, updated_at)
+              VALUES (14, 'Aksesuarlar', 1, 0, '2024-10-10 06:12:34', 'ACTIVE', '2024-10-10 06:12:34');
+        - sql:
+            sql: |
+              INSERT INTO public.categories (id, name, parent, priority, created_at, status, updated_at)
+              VALUES (15, 'USB və AUX kabellər', 14, 0, '2024-05-18 22:34:45', 'ACTIVE', '2024-05-18 22:34:45');
+        - sql:
+            sql: |
+              INSERT INTO public.categories (id, name, parent, priority, created_at, status, updated_at)
+              VALUES (16, 'Telefon üçün keyslər', 14, 0, '2024-01-25 15:48:12', 'ACTIVE', '2024-01-25 15:48:12');
+        - sql:
+            sql: |
+              INSERT INTO public.categories (id, name, parent, priority, created_at, status, updated_at)
+              VALUES (17, 'Smart saat və fitnes qolbaqlar üçün aksesuarlar', 14, 0, '2024-09-14 02:30:29', 'ACTIVE', '2024-09-14 02:30:29');
+        - sql:
+            sql: |
+              INSERT INTO public.categories (id, name, parent, priority, created_at, status, updated_at)
+              VALUES (18, 'Yaddaş kartlar', 14, 0, '2024-06-08 17:55:36', 'ACTIVE', '2024-06-08 17:55:36');
+        - sql:
+            sql: |
+              INSERT INTO public.categories (id, name, parent, priority, created_at, status, updated_at)
+              VALUES (19, 'Ekran qoruyucuları və plyonkalar', 14, 0, '2024-03-19 05:09:18', 'ACTIVE', '2024-03-19 05:09:18');
+        - sql:
+            sql: |
+              INSERT INTO public.categories (id, name, parent, priority, created_at, status, updated_at)
+              VALUES (20, 'Adapterlər', 14, 0, '2024-12-24 09:33:50', 'ACTIVE', '2024-12-24 09:33:50');
+        - sql:
+            sql: |
+              INSERT INTO public.categories (id, name, parent, priority, created_at, status, updated_at)
+              VALUES (21, 'Selfi çubuqları və ştativlər', 14, 0, '2024-02-12 01:21:03', 'ACTIVE', '2024-02-12 01:21:03');
+        - sql:
+            sql: |
+              INSERT INTO public.categories (id, name, parent, priority, created_at, status, updated_at)
+              VALUES (22, 'Smartfon üçün qeympadlar, triqqerlər', 14, 0, '2024-11-21 14:44:29', 'DELETED', '2024-11-21 14:44:29');
+        - sql:
+            sql: |
+              INSERT INTO public.categories (id, name, parent, priority, created_at, status, updated_at)
+              VALUES (23, 'Müxtəlif', 14, 0, '2024-07-26 07:50:17', 'ACTIVE', '2024-07-26 07:50:17');

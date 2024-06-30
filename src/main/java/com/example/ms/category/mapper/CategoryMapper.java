@@ -2,6 +2,7 @@ package com.example.ms.category.mapper;
 
 import com.example.ms.category.controller.dao.entity.CategoryEntity;
 import com.example.ms.category.model.request.CreateCategoryRequest;
+import com.example.ms.category.model.response.CategoryDto;
 import com.example.ms.category.model.response.CreateCategoryResponse;
 
 import java.time.LocalDateTime;
@@ -31,6 +32,13 @@ public enum CategoryMapper {
                 .createdAt(entity.getCreatedAt())
                 .status(entity.getStatus())
                 .updatedAt(entity.getUpdatedAt())
+                .build();
+    }
+
+    public CategoryDto toCategoryDto(CategoryEntity entity){
+        return CategoryDto.builder()
+                .id(entity.getId())
+                .name(entity.getName())
                 .build();
     }
 }
